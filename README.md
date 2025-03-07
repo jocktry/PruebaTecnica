@@ -1,12 +1,41 @@
-# React + Vite
+# Season Fruits App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application built with Vite that displays a list of seasonal fruits. Users can filter fruits by family, order, or genus, search for fruits by name, and sort the list alphabetically. The application also provides nutritional information for the visible fruits.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Filter fruits by family, order, or genus
+- Search for fruits by name
+- Sort fruits alphabetically (A-Z or Z-A)
+- Load more fruits with a "See More" button
+- Display nutritional information for visible fruits
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Redux Toolkit Query
+- React Bootstrap
+- FontAwesome Icons
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/your-username/season-fruits-app.git
+   cd season-fruits-app
+2. **Install dependencies**:
+    ```sh
+    npm install
+    ```
+
+3. **Start the development server**:
+    ```sh
+    npm run dev
+    ```
+
+## Node Version
+
+Make sure you are using Node.js version 22.12.0 or higher.
