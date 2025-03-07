@@ -15,10 +15,13 @@ const FruitCard = ({ fruit }) => {
 
   const [imageSrc, setImageSrc] = useState(initialImage);
   const [currentFallbackIndex, setCurrentFallbackIndex] = useState(0);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     setImageSrc(initialImage);
     setCurrentFallbackIndex(0);
+    const favoriteFruits = JSON.parse(localStorage.getItem('favoriteFruits')) || [];
+    setIsFavorite(favoriteFruits.includes(fruit.name));
   }, [fruit.name]);
 
   const handleImageError = () => {
@@ -28,11 +31,23 @@ const FruitCard = ({ fruit }) => {
     }
   };
 
+  const handleFavoriteClick = () => {
+    const favoriteFruits = JSON.parse(localStorage.getItem('favoriteFruits')) || [];
+    if (isFavorite) {
+      const updatedFavorites = favoriteFruits.filter(fav => fav !== fruit.name);
+      localStorage.setItem('favoriteFruits', JSON.stringify(updatedFavorites));
+    } else {
+      favoriteFruits.push(fruit.name);
+      localStorage.setItem('favoriteFruits', JSON.stringify(favoriteFruits));
+    }
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <Col md={4} className="mb-4">
       <Card className="h-100 fruit-card">
-        <Button variant="light" className="favorite-button">
-          <FaHeart size={15} style={{ color: 'black' }} /> 
+        <Button variant="light" className="favorite-button" onClick={handleFavoriteClick}>
+          <FaHeart size={15} style={{ color: isFavorite ? 'red' : 'black' }} /> 
         </Button>
         <Card.Img 
           variant="top" 
